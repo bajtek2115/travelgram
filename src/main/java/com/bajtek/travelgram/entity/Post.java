@@ -18,9 +18,8 @@ public class Post {
     @Column(nullable = false)
     private LocalDateTime created = LocalDateTime.now();
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @Column(nullable = false)
+    private String image;
 
     public Post() {
     }
@@ -49,11 +48,11 @@ public class Post {
         this.created = created;
     }
 
-    public User getUser() {
-        return user;
+    public String getImage() {
+        return image;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setImage(String image) {
+        this.image = image;
     }
 }
