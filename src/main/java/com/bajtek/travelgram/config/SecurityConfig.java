@@ -18,7 +18,7 @@ public class SecurityConfig {
                 .usersByUsernameQuery("select username,password,enabled "
                         + "from user "
                         + "where username = ?")
-                .authoritiesByUsernameQuery("select u.username,a.authority from authority a join user u on a.userId = u.id where u.username = ?");
+                .authoritiesByUsernameQuery("select u.username,a.authority from authority a join user u on a.user_id = u.id where u.username = ?");
         return new JdbcUserDetailsManager(dataSource);
     }
 
