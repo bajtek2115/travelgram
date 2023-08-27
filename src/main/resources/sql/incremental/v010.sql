@@ -15,3 +15,11 @@ CREATE TABLE post (
     imgUrl VARCHAR(500) NOT NULL,
     FOREIGN KEY (userId) REFERENCES user(id)
 );
+
+create table authority (
+id int auto_increment,
+userId int not null,
+authority varchar(50) not null,
+primary key(id),
+foreign key (userId) references user (id)
+);

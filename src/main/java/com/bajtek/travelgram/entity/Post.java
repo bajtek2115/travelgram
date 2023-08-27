@@ -21,6 +21,9 @@ public class Post {
     @Column(nullable = false)
     private String image;
 
+    @Column(nullable = false)
+    private CountryEnum country;
+
     public Post() {
     }
 
@@ -54,5 +57,13 @@ public class Post {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public CountryEnum getCountry() {
+        return country;
+    }
+
+    public void setCountry(CountryEnum country) {
+        this.country = country;
     }
 }
