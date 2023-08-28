@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tworzenie Posta</title>
+    <title>Dodawanie wpisu</title>
 </head>
 <body>
+
+<h1>Tworzenie nowego wpisu</h1>
+
+<form action="#" th:action="@{add-post}" th:object="${post}" method="post">
+    <label>Opis</label>
+    <input type="text" th:field="*{description}"/>
+    <label>Link do obrazka</label>
+    <input type="text" th:field="*{image}"/>
+    <label>Państwo</label>
+    <select th:field="*{country}">
+        <option th:each="country : ${countriesDict}" th:value="${country.value}" th:text="${country.name}"></option>
+    </select>
+    <input type="submit" value="Stwórz"/>
+</form>
+
 
 </body>
 </html>

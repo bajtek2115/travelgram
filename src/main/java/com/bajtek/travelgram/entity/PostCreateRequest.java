@@ -1,41 +1,16 @@
 package com.bajtek.travelgram.entity;
 
-import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "post")
-public class Post {
+public class PostCreateRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
     private Long userId;
-
-    @Column(nullable = false)
     private String description;
-
-    @Column(nullable = false)
     private LocalDateTime created = LocalDateTime.now();
-
-    @Column(nullable = false)
     private String image;
-
-    @Column(nullable = false)
     private Country country;
 
-    public Post() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public PostCreateRequest() {
     }
 
     public Long getUserId() {

@@ -35,4 +35,8 @@ public class UserService {
     private String preparePassword(String password) {
         return "{noop}" + password;
     }
+
+    public User getByUsername(String username) {
+        return userRepository.findAllByUsername(username).get(0);
+    }
 }
