@@ -13,6 +13,17 @@
         <img th:src="${post.image}">
         <p th:text="${post.description}"></p>
         <p th:text="${post.country.displayName}"></p>
+        <form th:action="@{/addComment}" method="post">
+            <input type="hidden" th:name="postId" th:value="${post.id}"/>
+            <input type="text" name="commentText" placeholder="Dodaj komentarz"/>
+            <button type="submit">Dodaj komentarz</button>
+        </form>
+    </div>
+    <div th:each="comment : ${post.comments}">
+        <div>
+            <p th:text="${comment.created}"></p>
+            <p th:text="${comment.text}"></p>
+        </div>
     </div>
 </div>
 

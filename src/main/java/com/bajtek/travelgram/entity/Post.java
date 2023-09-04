@@ -3,6 +3,8 @@ package com.bajtek.travelgram.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "post")
@@ -26,6 +28,9 @@ public class Post {
 
     @Column(nullable = false)
     private Country country;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
 
     public Post() {
     }
@@ -76,5 +81,13 @@ public class Post {
 
     public void setCountry(Country country) {
         this.country = country;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }
